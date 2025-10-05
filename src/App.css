@@ -1,4 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=MesloLGS+NF&display=swap");
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap");
+@font-face {
+  font-family: 'MesloLGS NF';
+  src: url('https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MesloLGS NF';
+  src: url('https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 * {
   margin: 0;
@@ -16,7 +30,7 @@ body {
 .app {
   height: 100vh;
   width: 100vw;
-  background-color: #1e1e1e;
+  background-color: #0d1117;
   display: flex;
   flex-direction: column;
 }
@@ -25,12 +39,18 @@ body {
   flex: 1;
   width: 100%;
   height: 100%;
-  padding: 8px;
+  padding: 0;
+  margin: 0;
+  background-color: #0d1117;
 }
 
 .terminal-container .xterm {
   height: 100% !important;
   width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background-color: #0d1117 !important;
 }
 
 .terminal-container .xterm-viewport {
@@ -39,4 +59,26 @@ body {
 
 .terminal-container .xterm-screen {
   height: 100% !important;
+}
+
+.terminal-container .xterm {
+  font-feature-settings: "liga" 1, "calt" 1;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeSpeed;
+  font-variant-ligatures: contextual;
+}
+
+.terminal-container .xterm-char-measure-element {
+  font-family: 'MesloLGS NF', 'JetBrainsMono Nerd Font', monospace !important;
+}
+
+.terminal-container .xterm-rows {
+  font-variant-numeric: tabular-nums;
+}
+
+.terminal-container .xterm-screen canvas {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
