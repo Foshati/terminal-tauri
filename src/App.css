@@ -1,6 +1,6 @@
 @import "tailwindcss";
-
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap");
+
 @font-face {
   font-family: 'MesloLGS NF';
   src: url('https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf') format('truetype');
