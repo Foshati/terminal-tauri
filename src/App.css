@@ -1,17 +1,28 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap");
 @font-face {
   font-family: 'MesloLGS NF';
-  src: url('https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf') format('truetype');
+  src: url('/fonts/MesloLGS NF Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'MesloLGS NF';
-  src: url('https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf') format('truetype');
+  src: url('/fonts/MesloLGS NF Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+}
+@font-face {
+  font-family: 'MesloLGS NF';
+  src: url('/fonts/MesloLGS NF Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'MesloLGS NF';
+  src: url('/fonts/MesloLGS NF Bold Italic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
 }
 
 * {
@@ -24,7 +35,7 @@ html,
 body {
   height: 100%;
   overflow: hidden;
-  font-family: "MesloLGS NF", "Fira Code", monospace; /* Updated to include MesloLGS NF */
+  font-family: "MesloLGS NF", "Fira Code", monospace;
 }
 
 .app {
@@ -35,13 +46,95 @@ body {
   flex-direction: column;
 }
 
+.tab-bar {
+  display: flex;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 0;
+  margin: 0;
+  min-height: 40px;
+  align-items: center;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #21262d;
+  border-right: 1px solid #30363d;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.tab:hover {
+  background-color: #30363d;
+}
+
+.tab.active {
+  background-color: #0d1117;
+  border-bottom: 2px solid #79c0ff;
+}
+
+.tab-title {
+  flex: 1;
+  color: #c9d1d9;
+  font-size: 13px;
+  font-family: 'MesloLGS NF', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-close {
+  background: none;
+  border: none;
+  color: #8b949e;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.tab-close:hover {
+  background-color: #f85149;
+  color: white;
+}
+
+.tab-add {
+  background: none;
+  border: none;
+  color: #8b949e;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-left: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.tab-add:hover {
+  background-color: #30363d;
+  color: #c9d1d9;
+}
+
 .terminal-container {
   flex: 1;
   width: 100%;
-  height: 100%;
-  padding: 0;
+  padding: 4px 8px;
+  padding-top: 8px;
   margin: 0;
   background-color: #0d1117;
+  overflow: hidden;
 }
 
 .terminal-container .xterm {
@@ -67,6 +160,8 @@ body {
   -moz-osx-font-smoothing: auto;
   text-rendering: optimizeSpeed;
   font-variant-ligatures: contextual;
+  font-variant-numeric: tabular-nums;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .terminal-container .xterm-char-measure-element {
@@ -81,4 +176,16 @@ body {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+}
+
+.terminal-container .xterm-rows {
+  line-height: 1.0 !important;
+}
+
+.terminal-container .xterm .xterm-cursor-layer {
+  z-index: 1;
+}
+
+.terminal-container .xterm .xterm-text-layer {
+  font-kerning: none;
 }
